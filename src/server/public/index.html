@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="610090456564-23f3eajr9hscvup4rpcps994e2l0mf91.apps.googleusercontent.com">
+    <title>Environment constructor</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+
+<header>
+    <div class="wrapper">
+
+        <div class="logo">Environment Constructor</div>
+
+    </div>
+</header>
+
+<div class="introduction">
+
+    <div class="wrapper">
+
+        <h2>Welcome to Environment Constructor</h2>
+
+        <h3>Here you can easily create, manipulate and share you landscape scene!</h3>
+
+        <div class="g-signin2" data-height="80px" data-width="360px" data-longtitle="true" onClick="signIn();"></div>
+
+    </div>
+
+</div>
+
+<script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+<script>
+
+    function sendToTheServer(id_token){
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Content-Type", "application/json");
+
+        var myInit = {
+            method: 'POST',
+            headers: myHeaders,
+            credentials: 'same-origin',
+            body: JSON.stringify({
+                id_token: id_token
+            })
+        };
+
+        var myRequest = new Request('api/sign_in', myInit);
+
+        fetch(myRequest).then(function(response) {
+            response.json().then(function (data) {
+                if(data.redirected){
+                    window.location.replace(data.urlToRedirect);
+                }
+            });
+        })
+    }
+
+    function signIn() {
+        console.log('I am passing signIn')
+
+        var auth2 = gapi.auth2.getAuthInstance();
+
+        auth2.signIn().then(function(googleUser) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            sendToTheServer(id_token);
+        });
+    }
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+</body>
+</html>

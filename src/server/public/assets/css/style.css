@@ -1,0 +1,387 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    font-weight: 300;
+}
+
+h1,h2,h3,h4,h5{
+    font-weight: 300;
+}
+
+.dg.main.a input{
+    height: auto;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#menu{
+    max-height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-height: 200px;
+    background-color: #FFF;
+}
+#preloader{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: #FFF;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+    transition: 0s visibility, 0s opacity;
+}
+#preloader.visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+form{
+    display: none;
+}
+
+.btn{
+    height: 30px;
+    font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    border: 1px solid #000;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+.btn:hover,
+.btn.active{
+    background-color: #4dad78;
+    border-color: #4dad78;
+    color: #FFF;
+}
+.btn option{
+    color: #000;
+    background-color: #FFF !important;
+}
+
+.fl-wr{
+    display: flex;
+}
+
+input{
+    height: 40px;
+    outline: none;
+    border: 1px solid #000;
+    padding: 0 20px;
+    display: inline-block;
+    font-weight: 300;
+    max-width: 300px;
+    width: 100%;
+}
+
+.modal{
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-view{
+    padding: 20px;
+    background-color: #FFF;
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+}
+
+.modal-view .exit{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.preloader{
+    color: #FFF;
+}
+
+.modal.visible{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper{
+    max-width: 1520px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+header{
+    border-bottom: 1px solid #000;
+}
+
+header .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+header.scene .wrapper{
+    justify-content: flex-start;
+}
+header.scene .wrapper h2{
+    margin-right: 40px;
+}
+header.scene .wrapper .btn{
+    margin-right: 20px;
+}
+
+header .logo{
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+
+.introduction{
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.introduction .g-signin2{
+    display: inline-flex;
+}
+
+.introduction h2{
+    font-size: 36px;
+}
+
+.introduction h3{
+    font-size: 28px;
+}
+
+.profile{
+    margin-top: 40px;
+}
+
+.profile h2{
+    width: 200px;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.scenes-list h3{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.scenes-list ul{
+    margin-left: 30px;
+    padding: 0;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.scenes-list li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    list-style-type: circle;
+    position: relative;
+}
+.scenes-list li:before{
+    content: "—";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+}
+
+.scenes-list li h4{
+    font-size: 16px;
+    max-width: 300px;
+    width: 100%;
+    margin: 0 20px 0 0;
+}
+.scenes-list li .btn{
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+
+.scenes-list .fl-wr{
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.scenes-list .fl-wr .add-scene{
+    height: 40px;
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.scenes-list .fl-wr input{
+    max-width: 300px;
+    width: 100%;
+}
+
+.modal.scene-edit h3{
+    font-weight: 400;
+}
+
+.modal.scene-edit .change-name{
+    display: flex;
+    align-items: center;
+}
+
+.modal.scene-edit .change-name input{
+    height: 30px;
+    margin-left: 20px;
+}
+
+.modal.scene-edit .change-name .btn{
+    display: flex;
+    margin-left: 20px;
+}
+
+
+.modal.scene-edit ul{
+    overflow: auto;
+    max-height: 200px;
+    padding: 0  20px;
+}
+
+.modal.scene-edit ul li{
+    margin-top: 10px;
+    border-bottom: 1px solid #eee;
+    list-style-type: none;
+    padding-bottom: 5px;
+}
+
+.modal.scene-edit ul li h5{
+    font-size: 16px;
+    margin: 0;
+    font-weight: 400;
+    min-width: 60px;
+    max-width: 60px;
+    flex: 1;
+    display: block;
+}
+.modal.scene-edit ul li > div{
+    display: flex;
+    margin-bottom: 5px;
+}
+.modal.scene-edit ul li > div:last-child{
+    align-items: center;
+    justify-content: space-between;
+}
+.modal.scene-edit ul li .delete{
+    margin-left: 20px;
+}
+
+.add-models h3{
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.add-models .tabs .head{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-models .tabs .head .btn{
+    padding: 5px 10px;
+    margin:0 10px 10px 0;
+    user-select: none;
+    text-transform: capitalize;
+}
+
+.add-models .tabs .main{
+    max-height: 260px;
+    min-height: 260px;
+    overflow: auto;
+}
+
+.add-models .tabs .main .load-form{
+    margin-bottom: 20px;
+}
+
+.add-models .tabs .main .load-form p{
+    margin-top: 0;
+}
+
+.add-models .tabs .main > div{
+    display: none;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.add-models .tabs .main > div.visible{
+    display: flex;
+}
+
+.add-models .tabs .main .item{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.add-models .tabs .main .item  .img-wr{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    background-position: center center;
+    background-size:  cover;
+}
+
+
+.add-models .tabs .main h4{
+    margin: 10px 0 0;
+    text-align: center;
+}
+
+.add-models .tabs .main .notice{
+    color: #800202;
+    font-weight: 400;
+}

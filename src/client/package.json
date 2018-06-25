@@ -1,0 +1,26 @@
+{
+  "name": "environment-constructor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.prod.config.js",
+    "start": "node dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polkpolio1/environment-constructor.git"
+  },
+  "author": "zvcoldpy <igor.alyoshin.web@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polkpolio1/environment-constructor/issues"
+  },
+  "homepage": "https://github.com/polkpolio1/environment-constructor#readme",
+  "devDependencies": {
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  }
+}

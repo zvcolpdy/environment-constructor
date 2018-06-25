@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="610090456564-23f3eajr9hscvup4rpcps994e2l0mf91.apps.googleusercontent.com">
+    <title>Environment constructor</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="preloader">loading...</div>
+
+<header>
+    <div class="wrapper">
+
+        <div class="logo">Environment Constructor</div>
+
+        <a href="/logout" class="btn logout">Logout</a>
+
+    </div>
+</header>
+
+<section class="profile">
+    <div class="wrapper">
+        <h2>Profile</h2>
+
+        <div class="scenes-list">
+            <h3>You scenes:</h3>
+
+            <ul></ul>
+
+            <div class="fl-wr">
+                <input type="text" placeholder="Scene name">
+                <div class="btn add-scene">Add new scene</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal scene-edit">
+    <div class="modal-view">
+        <div class="exit"><img src="/assets/img/cancel.png" alt=""></div>
+        <h3>Scene: <span></span></h3>
+
+        <div class="item change-name">
+            <h4>Change name:</h4>
+            <input type="text" placeholder="name">
+            <div class="btn change-name-btn">Change</div>
+        </div>
+
+        <div class="item share-links">
+            <h4>Share links:</h4>
+
+            <ul></ul>
+
+            <div>
+                <select class="btn" name="" id="">
+                    <option value="0">Select mode type</option>
+                    <option value="1">Demonstrate mode</option>
+                    <option value="2">Edit mode</option>
+                </select>
+                <div class="btn generate-link">Create share link</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/libraries/jquery-3.3.1.min.js"></script>
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

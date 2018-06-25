@@ -1,0 +1,25 @@
+version: "2"
+services:
+  app:
+    container_name: app
+    restart: always
+    build: ./src
+    volumes:
+      - ./src:/app/
+      - /app/client/node_modules/
+      - /app/server/node_modules/
+    ports:
+      - "5858:5858"
+      - "3000:3000"
+      - "8000:8000"
+    tty: true
+    links:
+      - mongo
+    working_dir: /app
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
